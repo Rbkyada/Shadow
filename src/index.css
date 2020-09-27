@@ -1,13 +1,114 @@
+* {  padding: 0;  margin: 0;  box-sizing: border-box;}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto ', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App{
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 10% 90%;
+  background-image: linear-gradient(aqua,red);
+}
+
+.ShadeSearch{
+  background-image: linear-gradient(to left,rgb(212, 54, 54) 10%,rgb(51, 190, 190),rgb(214, 59, 59) 90%);
+}
+
+.Shades{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,10%);
+  grid-template-rows: repeat(auto-fill,10%);
+} 
+
+.picker{
+  margin-left: 50px;
+  border:none;
+}
+
+.picker:focus{
+  outline: 0px;
+}
+
+.copied{
+  cursor: pointer;
+  animation: copied 0.3;
+}
+
+
+@keyframes copied{
+  0%{
+    opacity: 0;
+    font-size:0;
+  }
+  100% {
+    opacity: 10;
+    font-size: 1rem;
+  }
+}
+
+.Shades{
+  animation: Lefttoright;
+  animation-duration: 0.7s;
+}
+
+@keyframes Lefttoright{
+  0%{
+   width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.shadeColor:hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* ========== Box Shadow Tools ========== */
+
+.ShadowBox{
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+}
+
+.box{
+  width: 40vh;
+  height: 40vh;
+  /* background-color: darkcyan; */
+  color: #fff;
+  text-align: center;
+  padding: 18vh 0pc;
+}
+
+.colorInput{
+  width: 40px !important;
+  padding: 0px !important;
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 767px){
+  .Shades{
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(100,20%);
+  }
+}
+
+@media screen and (max-width: 661px){
+  .Shades{
+    grid-template-columns: repeat(2,50%);
+    grid-template-rows: repeat(100,20%);
+  }
+  .picker{
+    margin-left: 10px;
+  }
 }
